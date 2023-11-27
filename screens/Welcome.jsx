@@ -20,8 +20,11 @@ const Welcome = () => {
                         <Image source={require('../src/image/check-fill.png')} />
                         <Text style={{fontSize:wp(4)}} className='text-white font-semibold tracking-widest'>Secure, private messaging</Text>
                     </View>
-                    <TouchableOpacity onPress={()=>navigation.navigate('Authentication')} activeOpacity={0.5} className='bg-white mx-4 p-4 my-4 items-center rounded-full'>
-                        <Text style={{fontSize:wp(5)}} className='text-black font-semibold tracking-widest'> Get Started</Text>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Authentication')}
+                    style={styles.btn}
+                      className='bg-white mx-4 p-4 my-4 items-center rounded-full'
+                      activeOpacity={0.5}>
+                        <Text style={{fontSize:wp(5)}} className='text-white font-semibold tracking-widest'> Get Started</Text>
                     </TouchableOpacity>
             </View>
         </View>

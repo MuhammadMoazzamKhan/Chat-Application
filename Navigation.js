@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
 import Welcome from './screens/Welcome';
 import Authentication from './screens/Authentication';
+import OTP from './screens/OTP';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ function Navigation() {
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Authentication" component={Authentication} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="OTP" component={OTP} />
       </Stack.Navigator>
     </NavigationContainer>
   );
