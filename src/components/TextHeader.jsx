@@ -7,7 +7,7 @@ const TextHeader = ({ heading, paragragh, no}) => {
     return (
         <View className='items-center mx-4 space-y-1'>
             <Text style={{ fontSize: wp(6) }} className='text-white font-bold mt-40'>{heading}</Text>
-            <Text style={{ fontSize: wp(4) }} className='text-gray-300 font-semibold text-center tracking-wide'>{paragragh}<Text style={styles.text} className='font-bold'>{'+'+ no}</Text></Text>
+            <Text style={{ fontSize: wp(4) }} className='text-gray-300 font-semibold text-center tracking-wide'>{paragragh}{no && <Text style={styles.text} className='font-bold'>{'+'+ no}</Text>}</Text>
         </View>
     )
 }
