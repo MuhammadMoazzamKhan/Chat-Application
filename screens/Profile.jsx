@@ -6,6 +6,7 @@ import AIcon from "react-native-vector-icons/AntDesign"
 import Input from '../src/components/Input'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 const Profile = () => {

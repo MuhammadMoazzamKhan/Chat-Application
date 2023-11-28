@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp} from 'react-native-responsive-screen';
 const Input = (props) => {
     return (
         <View className='w-full'>
-            <TouchableOpacity className='w-full border rounded-xl px-2 my-1' style={{borderColor:theme.btn ,...styles.inputBackground}} >
+            <TouchableOpacity className='w-full border rounded-xl px-2 my-2' style={{borderColor:theme.btn ,...styles.inputBackground}} >
                 <TextInput
                     placeholder={props.placeholder}
                     placeholderTextColor={theme.inputPlaceholder}

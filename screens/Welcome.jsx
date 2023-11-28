@@ -21,8 +21,8 @@ const Welcome = () => {
                         <Text style={{fontSize:wp(4)}} className='text-white font-semibold tracking-widest'>Secure, private messaging</Text>
                     </View>
                     <TouchableOpacity onPress={()=>navigation.navigate('Authentication')}
-                    style={{ borderColor:theme.text,...styles.btn}}
-                      className='bg-white mx-4 p-4 my-4 items-center rounded-full border'
+                    style={styles.btn}
+                      className='bg-white mx-4 p-4 my-4 items-center rounded-full'
                       activeOpacity={0.5}>
                         <Text style={{fontSize:wp(5)}} className='text-white font-semibold tracking-widest'> Get Started</Text>
                     </TouchableOpacity>
