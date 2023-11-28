@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { styles } from '../theme'
+import { styles, theme } from '../theme'
 import TextHeader from '../src/components/TextHeader';
 import OTPTextInput from 'react-native-otp-textinput'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -25,8 +25,8 @@ const OTP = () => {
           textInputStyle={style.OTPInput} containerStyle={style.OTPContainer} />
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{ ...styles.btn, width: wp(30) }} className='mt-36 p-2 self-center rounded-xl'>
-        <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Next</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{ borderColor:theme.text,...styles.btn, width: wp(40) }} className='mt-36 py-2 px-4 self-center rounded-xl'>
+        <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Resend code</Text>
       </TouchableOpacity>
     </View>
   )
@@ -34,7 +34,7 @@ const OTP = () => {
 
 const style = StyleSheet.create({
   OTPContainer: {
-    marginHorizontal: 60
+    marginHorizontal: 60,
   },
   OTPInput: {
     backgroundColor: '#7a2d41',
@@ -42,7 +42,8 @@ const style = StyleSheet.create({
     fontWeight: '700',
     borderWidth: 1,
     borderRadius: 10,
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    backgroundColor:theme.inputBackground
   }
 });
 
