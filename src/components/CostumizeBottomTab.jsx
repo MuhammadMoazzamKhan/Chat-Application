@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable, useWindowDimensions } from 'react-native';
 import BottomTabIcon from './BottomTabIcon';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { theme } from '../../theme';
 const CostumizeBottomTab = ({ state, descriptors, navigation }) => {
 
   const { width } = useWindowDimensions();
@@ -61,7 +62,7 @@ const CostumizeBottomTab = ({ state, descriptors, navigation }) => {
           >
             <View style={style.contentContainer}>
               <BottomTabIcon route={route.name} isFocused={isFocused} />
-              <Text style={{ color: isFocused ? '#0067FF' : '#fff', fontSize: 12 }}>
+              <Text style={{ color: isFocused ? theme.background : '#fff', fontSize: 12,fontWeight:'700' }}>
                 {route.name}
               </Text>
             </View>
@@ -84,7 +85,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: '#0067FF'
+    backgroundColor: theme.btn
   },
   contentContainer: {
     flex: 1,

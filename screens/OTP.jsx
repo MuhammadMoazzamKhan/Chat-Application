@@ -24,7 +24,7 @@ const OTP = () => {
           textInputStyle={style.OTPInput} containerStyle={style.OTPContainer} />
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{ borderColor:theme.text,...styles.btn, width: wp(40) }} className='mt-36 py-2 px-4 self-center rounded-xl'>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{ borderColor:theme.text,...styles.btn, width: wp(40) }} className='absolute bottom-10 py-2 px-4 self-center rounded-xl'>
         <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Resend code</Text>
       </TouchableOpacity>
     </View>

@@ -16,7 +16,7 @@ const Welcome = () => {
                             Stay connected{"\n"}with your friends{"\n"}and family
                         </Text>
                     </View>
-                    <View className='flex-row mx-4 -mt-16 space-x-2 items-center'>
+                    <View className='flex-row mx-4 -mt-28 space-x-2 items-center'>
                         <Image source={require('../src/image/check-fill.png')} />
                         <Text style={{fontSize:wp(4)}} className='text-white font-semibold tracking-widest'>Secure, private messaging</Text>
                     </View>

@@ -4,14 +4,15 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import Icon from 'react-native-vector-icons/FontAwesome'
 import FIcon from 'react-native-vector-icons/FontAwesome6'
 import { styles } from '../theme';
+import LottieView from 'lottie-react-native';
 
 const Home = () => {
-  const [user, setUser] = useState([1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]);
+  const [user, setUser] = useState([]);
 
-  const UserList = ({index}) => {
-    const borderBottom = index+1 !== user.length;
+  const UserList = ({ index }) => {
+    const borderBottom = index + 1 !== user.length;
     return (
-      <TouchableOpacity borderBottom className={`py-3 flex-row justify-between ${borderBottom ? 'border-b border-b-yellow-800':''} `}>
+      <TouchableOpacity borderBottom className={`py-3 flex-row justify-between ${borderBottom ? 'border-b border-b-yellow-800' : ''} `}>
         <View className='flex-row items-center space-x-2'>
           <Image style={{ width: wp(12), height: hp(7) }} source={require('../src/image/UserProfile.png')} className='rounded-full' />
           <View>
@@ -26,7 +27,7 @@ const Home = () => {
           </View>
         </View>
         <Text style={{ fontSize: wp(3.6) }}
-        className='text-white font-bold'>
+          className='text-white font-bold'>
           8:24
         </Text>
       </TouchableOpacity>
@@ -47,19 +48,25 @@ const Home = () => {
 
       {/* Chat List */}
 
-      <View className='flex-1 rounded-tr-full -mt-11' style={styles.background} >
+      <View className='flex-1 rounded-tr-full -mt-11 mb-14' style={styles.background} >
         <View className='flex-1 mx-4 my-3 '>
           <Text style={{ fontSize: wp(5.4) }} className='font-extrabold text-white tracking-wide mb-2 mt-1'>Chatrooms</Text>
 
-          <FlatList
+
+          {user.length > 0 ? (<FlatList
             showsVerticalScrollIndicator={false}
             data={user}
             renderItem={UserList}
             scrollEnabled={true}
             keyExtractor={(item, index) => index.toString()}
             automaticallyAdjustKeyboardInsets
-          />
-
+          />) : (
+            <View className='flex-1 items-center justify-center' >
+              <LottieView
+                style={{ width: wp(100), height: hp(60) }}
+                source={require('../src/image/EmpltyChat.json')} autoPlay loop />
+            </View>
+          )}
         </View>
       </View>
 

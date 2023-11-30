@@ -78,7 +78,7 @@ const Authentication = () => {
 
             {/* Bottom Button */}
 
-            <TouchableOpacity  onPress={()=>navigation.navigate('OTP')}  style={{...styles.btn, width: wp(30) }} className='mt-20 p-2 self-center rounded-xl'>
+            <TouchableOpacity  onPress={()=>navigation.navigate('OTP')}  style={{...styles.btn, width: wp(30) }} className='absolute bottom-10 p-2 self-center rounded-xl'>
                 <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Next</Text>
             </TouchableOpacity>
 
