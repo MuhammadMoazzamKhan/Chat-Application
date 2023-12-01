@@ -14,9 +14,6 @@ const BottomTabIcon = ({ route, isFocused }) => {
             case "Home":
                 return <EIcon name='chat' size={20} color={isFocused?theme.background:'#fff'} />
                 break;
-            case "GroupChat":
-                return <FIcon name='group' size={20} color={isFocused?theme.background:'#fff'} />
-                break;
             case "Search":
                 return <FIcon name='search' size={20} color={isFocused?theme.background:'#fff'} />
                 break;

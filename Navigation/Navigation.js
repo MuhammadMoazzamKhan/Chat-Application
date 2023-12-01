@@ -7,6 +7,7 @@ import Authentication from '../screens/Authentication';
 import OTP from '../screens/OTP';
 import Profile from '../screens/Profile';
 import BottomTabNavigator from './BottomTap';
+import Chat from '../screens/Chat';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ function Navigation() {
         <Stack.Screen name="Authentication" component={Authentication} />
         <Stack.Screen name="OTP" component={OTP} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
     </NavigationContainer>
   );

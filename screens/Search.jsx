@@ -37,7 +37,7 @@ const Search = () => {
       <View className='flex-row mx-4 items-center space-x-4 mt-4'>
         <View className='flex-1 flex-row justify-between items-center bg-[#00000040] rounded-2xl'>
           <TextInput placeholder='Search' placeholderTextColor="white" className='flex-1 pl-4 py-3 text-white font-semibold text-base' />
-          <TouchableOpacity className='bg-[#565E70] p-2 rounded-xl'>
+          <TouchableOpacity className='bg-[#565E70] p-3 rounded-xl'>
             <Icon name='search' size={28} color="#fff" />
           </TouchableOpacity>
         </View>
@@ -63,8 +63,6 @@ const Search = () => {
 
         </View>
       </View>
-
-
 
     </SafeAreaView>
   )

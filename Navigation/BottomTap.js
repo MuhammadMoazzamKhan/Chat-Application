@@ -1,7 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Chat from '../screens/Chat';
 import Home from '../screens/Home';
-import GroupChat from '../screens/GroupChat';
 import Profile from '../screens/Profile';
 import Search from '../screens/Search';
 import CostumizeBottomTab from '../src/components/CostumizeBottomTab';
@@ -12,7 +10,6 @@ const BottomTabNavigator = () => {
     return (
         <Tab.Navigator screenOptions={{headerShown:false}} tabBar={props => <CostumizeBottomTab {...props} />} >
             <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="GroupChat" component={GroupChat} />
             <Tab.Screen name="Search" component={Search} />
             <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>

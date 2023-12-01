@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Pressable, useWindowDimensions } from 'react-na
 import BottomTabIcon from './BottomTabIcon';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import { theme } from '../../theme';
+
 const CostumizeBottomTab = ({ state, descriptors, navigation }) => {
 
   const { width } = useWindowDimensions();
@@ -27,6 +28,7 @@ const CostumizeBottomTab = ({ state, descriptors, navigation }) => {
 
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
+
 
         const isFocused = state.index === index;
 

@@ -1,18 +1,32 @@
-import { View, Text, Image, SafeAreaView, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Image, SafeAreaView, TouchableOpacity, FlatList } from 'react-native'
+import React, { useState,useEffect } from 'react'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Icon from 'react-native-vector-icons/FontAwesome'
-import FIcon from 'react-native-vector-icons/FontAwesome6'
 import { styles } from '../theme';
 import LottieView from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState([1,2]);
+  const [navi, setNavi] = useState(true);
+
+  useEffect(() => {
+    setNavi(true)
+  }, [navi])
+  
+  const navigation = useNavigation()
+
+  const navigate = ()=>{
+    if(navi){
+      navigation.navigate('Chat')
+      setNavi(!navi)
+    }
+  }
+
 
   const UserList = ({ index }) => {
     const borderBottom = index + 1 !== user.length;
     return (
-      <TouchableOpacity borderBottom className={`py-3 flex-row justify-between ${borderBottom ? 'border-b border-b-yellow-800' : ''} `}>
+      <TouchableOpacity onPress={navigate} className={`py-3 flex-row justify-between ${borderBottom ? 'border-b border-b-yellow-800' : ''} `}>
         <View className='flex-row items-center space-x-2'>
           <Image style={{ width: wp(12), height: hp(7) }} source={require('../src/image/UserProfile.png')} className='rounded-full' />
           <View>
