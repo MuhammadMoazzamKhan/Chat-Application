@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import { widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import CountryPicker, { DARK_THEME } from 'react-native-country-picker-modal'
 import AIcon from 'react-native-vector-icons/AntDesign'
 import SocialAuth from '../src/components/SocialAuth';
@@ -29,6 +29,14 @@ const Authentication = () => {
         setVisibilityOfCountry(!visibilityOfCountry)
     }
 
+   
+
+
+
+
+
+
+
     return (
         <View style={styles.background} className='flex-1'>
             {/* Heading */}
@@ -43,8 +51,8 @@ const Authentication = () => {
                     Phone Number
                 </Text>
 
-                <View  className='flex-row justify-between space-x-2'>
-                    <TouchableOpacity  style={{borderColor:theme.btn ,...styles.inputBackground}} onPress={visibilityHandler} className='px-2 py-1 border rounded-xl flex-row items-center'>
+                <View className='flex-row justify-between space-x-2'>
+                    <TouchableOpacity style={{ borderColor: theme.btn, ...styles.inputBackground }} onPress={visibilityHandler} className='px-2 py-1 border rounded-xl flex-row items-center'>
                         <CountryPicker
                             {...{
                                 countryCode,
@@ -53,12 +61,12 @@ const Authentication = () => {
                             visible={visibilityOfCountry}
                             theme={DARK_THEME}
                         />
-                        <Text style={{ fontSize: wp(4.3) }} className='text-white font-semibold text-center'>{"+"+callingCode}</Text>
+                        <Text style={{ fontSize: wp(4.3) }} className='text-white font-semibold text-center'>{"+" + callingCode}</Text>
                         <AIcon name='down' size={18} color='#fff' />
                     </TouchableOpacity>
 
 
-                    <TouchableOpacity style={{borderColor:theme.btn ,...styles.inputBackground}}  className='flex-1 px-2 py-1 border rounded-xl'>
+                    <TouchableOpacity style={{ borderColor: theme.btn, ...styles.inputBackground }} className='flex-1 px-2 py-1 border rounded-xl'>
                         <TextInput
                             placeholder='Enter Your Phone Number'
                             placeholderTextColor={theme.inputPlaceholder}
@@ -78,7 +86,7 @@ const Authentication = () => {
 
             {/* Bottom Button */}
 
-            <TouchableOpacity  onPress={()=>navigation.navigate('OTP')}  style={{...styles.btn, width: wp(30) }} className='absolute bottom-10 p-2 self-center rounded-xl'>
+            <TouchableOpacity onPress={() => navigation.navigate('OTP')} style={{ ...styles.btn, width: wp(30) }} className='absolute bottom-10 p-2 self-center rounded-xl'>
                 <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Next</Text>
             </TouchableOpacity>
 
