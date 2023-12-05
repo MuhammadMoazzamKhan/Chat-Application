@@ -1,4 +1,4 @@
-import { View, Text,TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { styles, theme } from '../theme'
 import FIcon from "react-native-vector-icons/FontAwesome"
@@ -16,26 +16,28 @@ const Profile = () => {
 
     return (
         <View style={styles.background} className='flex-1 items-center'>
-            <TouchableOpacity activeOpacity={.7} style={{height:100,width:100}} className='mt-20 rounded-full items-center justify-center '>
+            <TouchableOpacity activeOpacity={.7} style={{ height: 100, width: 100 }} className='mt-20 rounded-full items-center justify-center '>
                 <FIcon name='user-circle' color='#fff' size={80} />
                 <View className='absolute bottom-0 right-1'>
-                <AIcon name='pluscircle' color={theme.text} size={25} />
+                    <AIcon name='pluscircle' color={theme.text} size={25} />
                 </View>
             </TouchableOpacity>
 
             {/* Input */}
-            
+
             <View className='w-full p-5 my-10'>
-                    <Input placeholder='First Name' />
-                    <Input placeholder='Last Name (Optional)' />
+                <Input placeholder='First Name' />
+                <Input placeholder='Last Name (Optional)' />
             </View>
 
 
 
             {/* Bottom Button */}
-            <TouchableOpacity onPress={() => navigation.navigate('HomeTab')} style={{ ...styles.btn, width: wp(30) }} className='absolute bottom-10 p-2 self-center rounded-xl'>
-                <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Save</Text>
-            </TouchableOpacity>
+            <View className='flex-1 justify-center'>
+                <TouchableOpacity onPress={() => navigation.navigate('HomeTab')} style={{ ...styles.btn, width: wp(30) }} className='p-2 self-center rounded-xl'>
+                    <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Save</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }

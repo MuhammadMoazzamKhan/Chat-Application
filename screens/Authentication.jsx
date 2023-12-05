@@ -1,18 +1,23 @@
 import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import CountryPicker, { DARK_THEME } from 'react-native-country-picker-modal'
 import AIcon from 'react-native-vector-icons/AntDesign'
 import SocialAuth from '../src/components/SocialAuth';
 import { styles, theme } from '../theme';
 import { useNavigation } from '@react-navigation/native';
 import TextHeader from '../src/components/TextHeader';
+import auth from '@react-native-firebase/auth';
+import Button from '../src/components/Button';
 
 const Authentication = () => {
+    const [btnClick, setBtnClick] = useState(false)
     const [phoneNo, setPhoneNo] = useState('')
+    const [error, setError] = useState(null)
     const [countryCode, setCountryCode] = useState('PK')
     const [callingCode, setCallingCode] = useState(92)
     const [visibilityOfCountry, setVisibilityOfCountry] = useState(false)
+    const [confirm, setConfirm] = useState(null)
 
     const navigation = useNavigation();
 
@@ -28,14 +33,28 @@ const Authentication = () => {
     const visibilityHandler = () => {
         setVisibilityOfCountry(!visibilityOfCountry)
     }
-
-   
-
+    console.log(confirm)
 
 
-
-
-
+    async function signInWithPhoneNumber() {
+        try {
+            const phoneNumber = ("+" + callingCode + phoneNo).toString();
+            if (callingCode && phoneNo.length > 9) {
+                setError("")
+                const confirmation = await auth().signInWithPhoneNumber("+923140039815");
+                setConfirm(confirmation);
+                console.log(phoneNumber)
+                //   navigation.navigate('OTP',confirmation)
+            } else if (phoneNo.length === 0) {
+                setError(`* Enter Your Number please`)
+            } else {
+                setError(`* This number ${phoneNumber} does not exsist!`)
+            }
+        } catch (error) {
+            console.log(error)
+            setError(error)
+        }
+    }
 
     return (
         <View style={styles.background} className='flex-1'>
@@ -73,22 +92,22 @@ const Authentication = () => {
                             onChangeText={textHandler}
                             keyboardType='numeric'
                             value={phoneNo}
+                            maxLength={10}
                             className='text-white font-medium'
                             style={{ fontSize: wp(4.3) }}
                         />
                     </TouchableOpacity>
-
                 </View>
+                {error && <Text style={{ fontSize: wp(4) }} className='text-red-500 font-semibold self-center'>{error}</Text>}
             </View>
 
             {/* Social Authentication */}
             <SocialAuth />
 
             {/* Bottom Button */}
-
-            <TouchableOpacity onPress={() => navigation.navigate('OTP')} style={{ ...styles.btn, width: wp(30) }} className='absolute bottom-10 p-2 self-center rounded-xl'>
-                <Text style={{ fontSize: wp(5) }} className='text-white font-semibold text-center'>Next</Text>
-            </TouchableOpacity>
+            <View className='flex-1 justify-center'>
+                <Button title='Next' onPress={signInWithPhoneNumber} btnClick={btnClick} setBtnClick={setBtnClick} />
+            </View>
 
         </View>
     )
